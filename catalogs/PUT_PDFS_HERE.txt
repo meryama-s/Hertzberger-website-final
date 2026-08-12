@@ -1,0 +1,6 @@
+Put the Spirits PDF catalog in this folder using this exact name:
+
+- Catalogue_hertz.pdf
+
+The Wines catalog is shown as “Coming soon” on the website. When it is ready,
+rename it to wines-catalog.pdf and ask to activate its download button.
