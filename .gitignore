@@ -1,0 +1,9 @@
+desktop.ini
+thumbs.db
+.DS_Store
+.vscode/
+*.code-workspace
+*.tmp
+*.log
+.env
+.env.*
