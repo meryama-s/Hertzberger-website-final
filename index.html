@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HERTZBERGER — Premium Beverage Importation & Distribution</title>
+<meta name="description" content="HERTZBERGER is a leading importer and distributor of premium alcoholic beverages, connecting world-class suppliers with discerning markets."/>
+<meta name="keywords" content="alcohol importation, beverage distribution, premium spirits, wine import, HERTZBERGER"/>
+<meta property="og:title" content="HERTZBERGER — Premium Beverage Importation & Distribution"/>
+<meta property="og:description" content="Trusted partner in premium alcoholic beverage importation and distribution."/>
+<meta property="og:type" content="website"/>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<!-- Styles -->
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-img" src="" alt=""> 
+</div>
+<body class="no-scroll">
+
+<!-- 
+     LOADER
+ -->
+<div id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">HERTZBERGER</div>
+    <div class="loader-tagline" data-i18n="loader_tag">Importation & Distribution</div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+</div>
+
+<!-- 
+     AGE GATE
+-->
+<div id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
+  <div class="age-box">
+    <div class="age-brand">HERTZBERGER</div>
+    <div class="age-icon"><i class="fa-solid fa-wine-glass"></i></div>
+    <h2 id="age-title" data-i18n="age_title">Age Verification</h2>
+    <p data-i18n="age_desc">This website is intended for adults of legal drinking age only. Please confirm your age to continue.</p>
+    <div class="age-question" data-i18n="age_question">Are you 18 years of age or older?</div>
+    <div class="age-actions">
+      <button class="age-yes" id="ageYes" data-i18n="age_yes">Yes, I am 18+</button>
+      <button class="age-no" id="ageNo" data-i18n="age_no">No, Exit</button>
+    </div>
+    <p class="age-legal" data-i18n="age_legal">By entering you agree to our Terms of Use. HERTZBERG promotes responsible drinking.</p>
+  </div>
+</div>
+
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie preferences" hidden>
+  <div class="cookie-copy">
+    <i class="fa-solid fa-cookie-bite"></i>
+    <p data-i18n="cookie_text">We use essential cookies to remember your preferences. You can learn more in our Privacy Policy.</p>
+  </div>
+  <div class="cookie-actions">
+    <a href="privacy.html" data-i18n="cookie_more">Privacy Policy</a>
+    <button type="button" class="cookie-decline" id="cookieDecline" data-i18n="cookie_decline">Reject</button>
+    <button type="button" class="cookie-accept" id="cookieAccept" data-i18n="cookie_accept">Accept</button>
+  </div>
+</div>
+
+<!-- 
+    catalog modal
+-->
+<div id="catalog-modal" role="dialog" aria-modal="true" aria-labelledby="catalog-modal-title">
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-book-open"></i></div>
+      <h3 id="catalog-modal-title" data-i18n="modal_title">Request Our Catalog</h3>
+      <p data-i18n="modal_desc">Please share your details to access our catalogues.</p>
+    </div>
+    <form id="catalogForm" class="modal-form" novalidate>
+      <input type="hidden" name="_subject" value="New HERTZBERGER catalog request"/>
+      <div class="mf-row">
+        <div class="mf-group"><label for="cf-name" data-i18n="cf_name">Full Name *</label><input type="text" id="cf-name" name="fullname" required autocomplete="name"/></div>
+        <div class="mf-group"><label for="cf-company" data-i18n="cf_company">Company Name *</label><input type="text" id="cf-company" name="company" required autocomplete="organization"/></div>
+      </div>
+      <div class="mf-row">
+        <div class="mf-group"><label for="cf-email" data-i18n="cf_email">Email Address *</label><input type="email" id="cf-email" name="email" required autocomplete="email"/></div>
+        <div class="mf-group"><label for="cf-phone" data-i18n="cf_phone">Phone Number *</label><input type="tel" id="cf-phone" name="phone" required autocomplete="tel"/></div>
+      </div>
+      <div class="mf-group"><label for="cf-country" data-i18n="cf_country">Country *</label><select id="cf-country" name="country" required><option value="" data-i18n="cf_country_select">Select your country</option><option value="MA">Morocco</option><option value="FR">France</option><option value="ES">Spain</option><option value="DE">Germany</option><option value="GB">United Kingdom</option><option value="AE">UAE</option><option value="SA">Saudi Arabia</option><option value="US">United States</option><option value="other">Other</option></select></div>
+      <label class="privacy-consent"><input type="checkbox" name="privacy_consent" value="accepted" required/><span data-i18n="privacy_consent">I agree that my details may be used to respond to my request.</span></label>
+      <button type="submit" class="mf-submit"><i class="fa-solid fa-unlock"></i><span data-i18n="cf_submit">Access Catalogues</span></button>
+    </form>
+    <div class="catalog-access" id="catalogAccess" hidden aria-label="Catalog downloads">
+      <div class="catalog-unlock"><i class="fa-solid fa-circle-check"></i><span data-i18n="catalog_access">Thank you. Your details have been sent successfully.</span></div>
+      <div class="catalog-choices">
+        <a class="catalog-choice" href="catalogs/Catalogue_hertz.pdf" download><i class="fa-solid fa-whiskey-glass"></i><span data-i18n="catalog_spirits">Spirits</span><small data-i18n="catalog_download">Download PDF</small></a>
+        <span class="catalog-choice is-coming" aria-disabled="true"><i class="fa-solid fa-wine-glass"></i><span data-i18n="catalog_wines">Wines</span><small data-i18n="catalog_soon">Coming soon</small></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+     NAVBAR
+-->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a href="#home" class="nav-logo" aria-label="HERTZBERGER Home">
+      <img src="media/logositew.png" alt="HERTZBERGER" class="logoH">
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <ul class="nav-links" role="list">
+      <li><a href="#home"      class="nav-link active" data-i18n="nav_home">Home</a></li>
+      <li><a href="#about"     class="nav-link" data-i18n="nav_about">About</a></li>
+      <li><a href="#services"  class="nav-link" data-i18n="nav_services">Services</a></li>
+      <li><a href="#suppliers" class="nav-link" data-i18n="nav_suppliers">Suppliers</a></li>
+      <li><a href="#products"  class="nav-link" data-i18n="nav_products">Products</a></li>
+      <li><a href="#catalog"   class="nav-link" data-i18n="nav_catalog">Catalog</a></li>
+      <li><a href="#contact"   class="nav-link" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+
+    <!-- Right Controls -->
+    <div class="nav-right">
+      <!-- Language Selector -->
+      <div class="lang-selector" id="langSelector">
+        <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+          <span id="langFlag">🇬🇧</span>
+          <span id="langCode">EN</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <div class="lang-opt" data-lang="en" tabindex="0"><span>🇬🇧</span> English</div>
+          <div class="lang-opt" data-lang="fr" tabindex="0"><span>🇫🇷</span> Français</div>
+          <div class="lang-opt" data-lang="ar" tabindex="0"><span>🇲🇦</span> العربية</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a href="#contact" class="nav-cta" data-i18n="nav_cta">Contact Us</a>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home"      onclick="closeMobileNav()" data-i18n="nav_home">Home</a>
+  <a href="#about"     onclick="closeMobileNav()" data-i18n="nav_about">About</a>
+  <a href="#services"  onclick="closeMobileNav()" data-i18n="nav_services">Services</a>
+  <a href="#suppliers" onclick="closeMobileNav()" data-i18n="nav_suppliers">Suppliers</a>
+  <a href="#products"  onclick="closeMobileNav()" data-i18n="nav_products">Products</a>
+  <a href="#catalog"   onclick="closeMobileNav()" data-i18n="nav_catalog">Catalog</a>
+  <a href="#contact"   onclick="closeMobileNav()" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-lang">
+    <button onclick="setLang('en');closeMobileNav()" data-mlang="en">🇬🇧 EN</button>
+    <button onclick="setLang('fr');closeMobileNav()" data-mlang="fr">🇫🇷 FR</button>
+    <button onclick="setLang('ar');closeMobileNav()" data-mlang="ar">🇲🇦 AR</button>
+  </div>
+  <a href="#contact" class="mobile-cta" onclick="closeMobileNav()" data-i18n="nav_cta">Contact Us</a>
+</div>
+
+<!-- 
+     HERO
+ -->
+<section id="home" class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-overlay-bottom"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">
+      <span class="eyebrow-line"></span>
+      <span data-i18n="hero_eyebrow">Importation & Distribution</span>
+      <span class="eyebrow-line"></span>
+    </div>
+    <h1 class="hero-title reveal delay-1">HERTZBERGER</h1>
+    <p class="hero-subtitle reveal delay-2" data-i18n="hero_subtitle">Importation & Distribution of Premium Beverages</p>
+    <p class="hero-desc reveal delay-3" data-i18n="hero_desc">Your trusted partner in sourcing and distributing the world's finest alcoholic beverages. From exclusive vintages to premium spirits, we bring excellence to every market we serve.</p>
+    <div class="hero-btns reveal delay-4">
+      <a href="#contact" class="btn-primary" data-i18n="hero_btn1">Contact Us</a>
+      <a href="#catalog" class="btn-outline" data-i18n="hero_btn2">Explore Catalog</a>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll" onclick="smoothScroll('#about')">
+    <span data-i18n="scroll">Scroll Down</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- 
+     TICKER / MARQUEE
+ -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span>HERTZBERGER</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick1">Premium Importation</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick2">Global Distribution</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick3">Trusted Partners</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick4">Premium Spirits</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick5">Fine Wines</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick6">Expert Logistics</span><span class="ticker-dot">◆</span>
+    <!-- duplicate for seamless loop -->
+    <span>HERTZBERG</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick1">Premium Importation</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick2">Global Distribution</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick3">Trusted Partners</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick4">Premium Spirits</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick5">Fine Wines</span><span class="ticker-dot">◆</span>
+    <span data-i18n="tick6">Expert Logistics</span><span class="ticker-dot">◆</span>
+  </div>
+</div>
+
+<!--ABOUT
+-->
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Image side -->
+      <div class="about-visual reveal-left">
+        <div class="about-img-frame">
+          <div class="img-placeholder about-placeholder">
+            <img src="media/fffffa62-1d18-457d-8feb-bd2ccebe3d6a.png" alt="comptoir">
+          </div>
+          
+        </div>
+        <div class="about-img-sm">
+          
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="about-text reveal-right">
+        <div class="section-tag"><span data-i18n="about_tag">About HERTZBERG</span></div>
+        <h2 class="section-title" data-i18n="about_title">A Legacy of <span class="red">Premium</span> Distribution</h2>
+        <p data-i18n="about_p1">Founded with a passion for premium beverages, HERTZBERGER has grown into a trusted leader in the importation and distribution industry. We bridge the gap between the world's most renowned producers and the markets that demand quality.</p>
+        <p data-i18n="about_p2">Our expertise spans across wines, spirits, champagnes, and specialty beverages — each carefully sourced and handled with the highest standards of professionalism and care.</p>
+
+        <div class="about-mv">
+          <div class="mv-card">
+            <div class="mv-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <div>
+              <h4 data-i18n="mission_title">Our Mission</h4>
+              <p data-i18n="mission_text">To be the most reliable and premium beverage distribution partner, delivering excellence from source to shelf.</p>
+            </div>
+          </div>
+          <div class="mv-card">
+            <div class="mv-icon"><i class="fa-solid fa-eye"></i></div>
+            <div>
+              <h4 data-i18n="vision_title">Our Vision</h4>
+              <p data-i18n="vision_text">To redefine the standards of premium beverage importation across global markets through trust, innovation, and expertise.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="about-stats">
+          <div class="stat-item">
+            
+           
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="120">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label" data-i18n="stat_partners">Partners</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="20">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label" data-i18n="stat_brands">Premium Brands</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="30">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label" data-i18n="stat_countries">Countries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 
+     SERVICES
+-->
+<section id="services" class="section services-section dark-section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <div class="section-tag center"><span data-i18n="services_tag">What We Do</span></div>
+      <h2 class="section-title" data-i18n="services_title">Our <span class="red">Services</span></h2>
+      <p class="section-sub" data-i18n="services_sub">End-to-end beverage solutions — from sourcing and importation to logistics, marketing, and delivery.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal delay-1">
+        <div class="sc-num">01</div>
+        <div class="sc-icon"><i class="fa-solid fa-ship"></i></div>
+        <h3 data-i18n="svc1_title">Importation</h3>
+        <p data-i18n="svc1_desc">We handle the complete importation process — from sourcing premium products from international suppliers to customs clearance and compliance.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal delay-2">
+        <div class="sc-num">02</div>
+        <div class="sc-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <h3 data-i18n="svc2_title">Distribution</h3>
+        <p data-i18n="svc2_desc">Reliable and efficient distribution across all channels — hotels, restaurants, retailers, and specialty stores — with guaranteed delivery standards.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal delay-3">
+        <div class="sc-num">03</div>
+        <div class="sc-icon"><i class="fa-solid fa-warehouse"></i></div>
+        <h3 data-i18n="svc3_title">Logistics</h3>
+        <p data-i18n="svc3_desc">State-of-the-art warehousing, inventory management, cold-chain solutions, and real-time tracking ensuring products arrive in perfect condition.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal delay-4">
+        <div class="sc-num">04</div>
+        <div class="sc-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3 data-i18n="svc4_title">Marketing Support</h3>
+        <p data-i18n="svc4_desc">Strategic brand activation, promotional events, point-of-sale marketing, and campaign management to maximize brand visibility in every market.</p>
+        <div class="sc-line"></div>
+      </div>
+      <div class="service-card reveal delay-5">
+        <div class="sc-num">05</div>
+        <div class="sc-icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3 data-i18n="svc5_title">Supplier Management</h3>
+        <p data-i18n="svc5_desc">Building long-term relationships with premium international suppliers, managing contracts, quality control, and exclusive distribution agreements.</p>
+        <div class="sc-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+     SUPPLIERS
+-->
+<section id="suppliers" class="section suppliers-section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <div class="section-tag center"><span data-i18n="suppliers_tag">Our Partners</span></div>
+      <h2 class="section-title" data-i18n="suppliers_title">Trusted <span class="red">Suppliers</span></h2>
+      <p class="section-sub" data-i18n="suppliers_sub">We partner exclusively with world-class producers who share our commitment to quality and excellence.</p>
+    </div>
+
+    <div class="suppliers-grid reveal delay-2">
+       <div class="supplier-card"><a href="https://www.champagne-salon.fr/en#" target="_blank" rel="noopener noreferrer">
+        
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/champagne-salon.webp" alt="champagne salon" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">champagne salon</span>
+      </a></div>
+    
+     
+
+
+      <div class="supplier-card"><a href="https://murray-mcdavid.com/" target="_blank" rel="noopener noreferrer">
+        
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Screenshot_3-7-2026_143148_mail.google.com.jpeg" alt="murray mc david" class="hund">
+            
+          </div>
+        </div>
+        <span class="supplier-name">murray mc david</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://ronbarcelo.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/AF_BARCELO_CORP_RGB_POS_2892017133047-768x604.png" alt="ron barcelo" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">ron barcelo</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://casamaestritequila.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Casa-Maestri-LOGO-2023--1024x1024.png" alt="casa maestri" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">casa maestri</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://drammorgroup.com/#" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Drammor-Logo-Master.png" alt="drammor" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">drammor</span>
+      </a></div>
+
+
+      <div class="supplier-card"><a href="https://www.theduppyshare.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/ds_primarylogo_umbrella_invert2@2x-8.png" alt="duppy share" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">duppy share</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.edoardofreddi.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/edoardo-freddi-international-export-wine.png" alt="edoardo freddi" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">edoardo freddi</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://rampursinglemalt.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/RAMPURLOGO.jpg" alt="radico khaitan"  class="hund">
+            
+          </div>
+        </div>
+        <span class="supplier-name">Radico Khaitan</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.gin1689.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Gin-1689-Logo.png" alt="gin 1689" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">gin 1689</span>
+      </a></div>
+
+      <div class="supplier-card">
+        <a href="https://casasdelbosque.cl/en/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Logo-Casas-del-Bosque.jpg" alt="casas del bosque" class="hund">
+            
+          </div>
+        </div>
+        <span class="supplier-name">casas del bosque</span>
+      </a>
+    </div>
+
+      <div class="supplier-card">
+        <a href="https://raasay.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/ISLE-OF-RAASAY-HEBRIDEAN-DISTILLERS-PRIMARY-LOGO-Gold-Prune-Pattern-1280x478.png" alt="isle of raasay" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">isle of raasay</span>
+      </a>
+    </div>
+
+      <div class="supplier-card"><a href="https://leonardodavinci.it/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/leonardo-da-vinci-logo-1.png" alt="leonardo da vinci" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">leonardo da vinci</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.leonista.eu/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Leonista+White+on+transparent+Logo.webp" alt="leonista" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">leonista</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://lochleadistillery.com" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/logo-lochlea.png" alt="lochlea" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">lochlea</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://magueyspirits.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/logo.png" alt="maguey spirits" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">maguey spirits</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://montinafranciacorta.it/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Montina-Franciacorta-logo.png" alt="montina franciacorta" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name"> la montina franciacorta</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://amrutdistilleries.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/OIP (1).png" alt="amrut" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">amrut</span>
+      </a></div>
+
+      <div class="supplier-card">
+        <a href="https://wearetarsier.com" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Tarsier_Text_Logo.webp" alt="tarsier" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">tarsier</span>
+      </a>
+    </div>
+
+    <div class="supplier-card">
+        <a href="https://wearetarsier.com" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/1756706dad2a46308a75c4d0e7d1f65c.png" alt="romanée conti" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">domaine de la romanée conti</span>
+      </a>
+    </div>
+
+      <div class="supplier-card"><a href="https://isleofbarradistillers.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/barra-logo-white.avif" alt="the isle of barra" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">the isle of barra</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://gallowaydistillery.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/GD_Typemark_Light-high-res-new_540x.avif" alt="galloway" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">galloway</span>
+      </a></div>
+
+       <div class="supplier-card">
+        <a href="" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/e914dda710c57e06afabd02d0fb0deba7e3a6913b3fcb2a41a67de177d9f22b8.jpg" alt="petrus" class="hund">
+          </div>
+        </div>
+        <span class="supplier-name">petrus</span>
+      </a>
+    </div>
+
+      
+
+      <div class="supplier-card"><a href="https://www.northuistdistillery.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/NUD-02-Downpour-2-twin.jpg" alt="downpour" class="hund">
+            
+          </div>
+        </div>
+        <span class="supplier-name">downpour</span>
+      </a></div>
+
+       <div class="supplier-card"><a href="https://adhomecreative.com/work/distl-spirits/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/distl.png" alt="distl" class="hund">
+            
+          </div>
+        </div>
+        <span class="supplier-name">distl</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.indri.in/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="media/logo(1).png" alt="indri" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">indri</span>
+      </a></div>
+
+      
+
+
+      <div class="supplier-card"><a href="https://glenwyvis.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/glenwyvis.png" alt="glenwyvis" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">glenwyvis</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://doubledutchdrinks.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/double-dutch.png" alt="double dutch" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">double dutch</span>
+      </a></div>
+
+
+
+
+
+      <div class="supplier-card"><a href="https://louersvodka.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="media/logo_white.webp" alt="louers" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">louers</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://kwv.co.za/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/logos-2022-300dpi_KWV-Corp-white-pjogqhe3ee7yklurpsh1zxm871aznrtzvkwbfapv5s.png" alt="kwv" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">kwv</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.champagnemallet.fr/en" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Champagne-Jean-Mallet_2025-05-uai-258x258.jpg" alt="jean mallet" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">jean mallet champagne</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.summumvodka.com/en/accueil-en/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Summum-Logo.jpg" alt="summum"  class="hund">
+            
+          </div>
+        </div>
+        <span class="supplier-name">summum</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.woodrowswhisky.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Website+logo.webp" alt="woodrow's" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">woodrow's</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://jaisalmergin.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/jaisalmer.webp" alt="jaisalmer" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">jaisalmer</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.saltireraremalt.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Logo.jpg" alt="saltire rare malt" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">saltir rare malt</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.babco.group/products/horse-guards-london-dry-gin-70cl" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Horse+Guards_Secondary+Logo_Black_RGB+-+Copy.png" alt="horese guards" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">Horse guards</span>
+      </a></div>
+
+      <div class="supplier-card">
+        <a href="https://www.chateau-mouton-rothschild.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/chat.png" alt="champagne demalotte" class="hund">
+            
+          </div>
+        </div>
+        <span class="supplier-name">chateau mouton rothschild</span>
+      </a>
+    </div>
+
+      <div class="supplier-card"><a href="https://www.neptunerum.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/NEPTUNE+ICONIC+LOGO.webp" alt="hneptune rum" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">neptune rum</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://wolfburn.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/wb-logo-main_1f7a9202-dfbe-4d20-97ae-997db1257674_550x.png" alt="hwolfburn" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">wolfburn</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.tofkavodka.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/217923882_293494835781726_2766795810047869241_n.jpg" alt="tofka" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">tofka</span>
+      </a></div>
+      
+      <div class="supplier-card"><a href="https://pallini.com/en/prodotti-pallini/443-2/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/barentsz-logo.png" alt="barentsz" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">barentsz</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://house.suntory.com/products/whisky" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Suntory-Yamazaki-Distillery-Logo (1).png" alt="suntory" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">suntory</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.nikka.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/nika.png" alt="nikka" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">nikka</span>
+      </a></div>
+
+       <div class="supplier-card"><a href="https://www.pauljohnwhisky.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/paul.png" alt="paul john" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">paul john</span>
+      </a></div>
+
+       <div class="supplier-card"><a href="https://www.springbank.scot/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Springbank-Logo (1).png" alt="springbank" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">springbank</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.stockspirits.com/fr" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/stockè-logo.png" alt="stock" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">stock</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.institucionalcrsbrands.com.br/?page_id=339&lang=en" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/crs (1).png" alt="crs brands" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">crs brands</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://halewood.co.za/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/halewood-logo.png" alt="halewood" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">halewood</span>
+      </a></div>
+
+      
+
+      
+
+      <div class="supplier-card"><a href="https://champagnelemesnil.com/en" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/logo-upr.avif" alt="le mensil" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">le mensil</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.champagne-deutz.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/deutz.png" alt="deutz" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">deutz</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.champagne-delamotte.com/fr/ " target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/champagne-delamotte-logo.jpg" alt="champagne demalotte" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">champagne demalotte</span>
+      </a></div>
+
+      <div class="supplier-card"><a href="https://www.sapienwine.com/" target="_blank" rel="noopener noreferrer">
+        <div class="supplier-logo-wrap">
+          <div class="img-placeholder supplier-placeholder">
+            <img src="LOGOS/Sapien-LABEL-2-A_Logo.png" alt="sapien" class="imgsup">
+            
+          </div>
+        </div>
+        <span class="supplier-name">sapien</span>
+      </a></div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<!-- 
+     PRODUCTS
+-->
+<section id="products" class="section products-section dark-section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <div class="section-tag center"><span data-i18n="products_tag">Our Portfolio</span></div>
+      <h2 class="section-title" data-i18n="products_title">Premium <span class="red">Products</span></h2>
+      <p class="section-sub" data-i18n="products_sub">A curated selection of the world's finest wines, spirits, champagnes, and specialty beverages.</p>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="product-filters reveal delay-1">
+      <button class="pf-btn active" data-filter="all" data-i18n="pf_all">All</button>
+      
+      <button class="pf-btn" data-filter="whisky" data-i18n="pf_whisky">whisky</button>
+
+      <button class="pf-btn" data-filter="vodka" data-i18n="pf_vodka">vodka</button>
+
+      <button class="pf-btn" data-filter="gin" data-i18n="pf_gin">gin</button>
+
+      <button class="pf-btn" data-filter="tequila" data-i18n="pf_tequila">tequila</button>
+
+      <button class="pf-btn" data-filter="rum" data-i18n="pf_rum">rum</button>
+
+      <button class="pf-btn" data-filter="wine" data-i18n="pf_wine">Wines</button>
+
+      <button class="pf-btn" data-filter="champagne" data-i18n="pf_champagne">Champagne</button>
+      
+    </div>
+
+    <div class="products-grid">
+      <!--whisky-->
+       <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/704732123_1309806294588639_2113226723429318186_n.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">lochlea</h4>
+          <p class="product-origin">UK</p>
+        </div>
+      </div>
+
+
+       <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/raasay-prod.jpg" alt="raasay" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">isle of raasay</h4>
+          <p class="product-origin">UK</p>
+        </div>
+      </div>
+
+     
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/hibiki-prod.jfif" alt="hibiki" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">hibiki</h4>
+          <p class="product-origin">japan</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/yamazaki-prod.png" alt="yamazaki" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">yamazaki</h4>
+          <p class="product-origin">japan</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/toki-prod.jpg" alt="toki" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">toki</h4>
+          <p class="product-origin">japan</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/nikka-prod.jpg" alt="nikka" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">nikka</h4>
+          <p class="product-origin">japan</p>
+        </div>
+      </div>
+
+      
+      
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/saltir-prod.jpg" alt="saltire" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">saltire</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/springbank-prod.jpg" alt="springbank" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">springbank</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/wolfburn-prod.jpg" alt="wolfburn" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">wolfburn</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/woodrow-prod.jpg" alt="woodrow's" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">woodrow's</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/murray-prod.jpg" alt="murray-mcdavid" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">murray-mcdavid</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/glenwyvis-prod.jpg" alt="glenwyvis" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">glenwyvis</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/barrawhisky.jpg" alt="isle of barra" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">isle of barra</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/drammor-prod.jpg" alt="drammor" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">drammor</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/rampur-produit.jpg" alt="rampur" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">rampur</h4>
+          <p class="product-origin">india</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/rampurjuga.png" alt="rampur jugalbandi" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">rampur jugalbandi</h4>
+          <p class="product-origin">india</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/indri-prod.png" alt="indri" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">indri</h4>
+          <p class="product-origin">india</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/amrut-prod.jpg" alt="amrut" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">amrut</h4>
+          <p class="product-origin">india</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-2" data-category="whisky">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="whisky/pauljhon-prod.jpg" alt="paul jhon" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_whisky">whisky</span>
+          <h4 class="product-name">paul jhon</h4>
+          <p class="product-origin">india</p>
+        </div>
+      </div>
+
+
+
+
+
+
+<!--vodka-->
+ <div class="product-card reveal delay-7" data-category="vodka">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="VODKA/159167164_220371393154485_3789127178886061813_n.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_vodka">vodka</span>
+          <h4 class="product-name">louers vodka</h4>
+          <p class="product-origin">netherlands</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-7" data-category="vodka">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="VODKA/summum-prod.jpg" alt="summum" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_vodka">vodka</span>
+          <h4 class="product-name">summum</h4>
+          <p class="product-origin">france</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-7" data-category="vodka">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="VODKA/622407917_18126343300534004_5687535492819324003_n.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_vodka">vodka</span>
+          <h4 class="product-name">galloway</h4>
+          <p class="product-origin">scotland</p>
+        </div>
+      </div>
+      
+      <div class="product-card reveal delay-7" data-category="vodka">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="VODKA/nikka-vod.jpg" alt="nikka" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_vodka">vodka</span>
+          <h4 class="product-name">nikka</h4>
+          <p class="product-origin">japan</p>
+        </div>
+      </div>
+
+       <div class="product-card reveal delay-7" data-category="vodka">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="VODKA/roskoff-prod.jpg" alt="roskoff" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_vodka">vodka</span>
+          <h4 class="product-name">roskoff</h4>
+          <p class="product-origin">brazil</p>
+        </div>
+      </div>
+
+       <div class="product-card reveal delay-7" data-category="vodka">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="VODKA/tofka-prod.jpg" alt="tofka" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_vodka">vodka</span>
+          <h4 class="product-name">tofka</h4>
+          <p class="product-origin">south africa</p>
+        </div>
+      </div>
+
+      <!--gin
+      -->
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/jaisalmer-prod.png" alt="jaisalmer" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">jaisalmer</h4>
+          <p class="product-origin">india</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/jaisalmergold-prod.png" alt="jaisalmer gold" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">jaisalmer gold</h4>
+          <p class="product-origin">india</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/isleofbarra-prod.jpg" alt="isle of barra" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">isle of barra</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+    
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/tarsier-prod.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">tarsier</h4>
+          <p class="product-origin">uk</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/gin1689-prod.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">gin 1689</h4>
+          <p class="product-origin">netherlands</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/710827647_1484016037074216_6750600983106053404_n.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">downpour</h4>
+          <p class="product-origin">scotland</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/belgravia-prod.jpg" alt="belgravia" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">belgravia</h4>
+          <p class="product-origin">south africa</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/whitleyneill-prod.png" alt="whitley neill" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">whitley neill</h4>
+          <p class="product-origin">south africa</p>
+        </div>
+      </div>
+
+       <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/barentsz-prod.jpg" alt="barentsz" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">barentsz</h4>
+          <p class="product-origin">south africa</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/cruxland-prod.png" alt="cruxland" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">cruxland</h4>
+          <p class="product-origin">south africa</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-3" data-category="gin">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="gin/imagin-prod.jpg" alt="imagin" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_gin">gin</span>
+          <h4 class="product-name">imagin</h4>
+          <p class="product-origin">south africa</p>
+        </div>
+      </div>
+
+
+
+<!--tequila
+      -->
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/casatequ-prod.jpg" alt="casamaestri" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">casa maestri</h4>
+          <p class="product-origin">mexico</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/elpadrino-prod.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">el padrino</h4>
+          <p class="product-origin">mexico</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/agavales-prod.jpg" alt="agavales" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">agavales</h4>
+          <p class="product-origin">mexico</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/boom-prod.jpg" alt="agave boom" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">agave boom</h4>
+          <p class="product-origin">mexico</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/bozal-prod.jpg" alt="bozal" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">bozal</h4>
+          <p class="product-origin">mexico</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/sotol-prod.jpg" alt="senor sotol" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">senor sotol</h4>
+          <p class="product-origin">mexico</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/pasote-prod.jpg" alt="pasote" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">pasote</h4>
+          <p class="product-origin">mexico</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/burrito-prod.jpg" alt="burrito" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">burrito</h4>
+          <p class="product-origin">mexico</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-4" data-category="tequila">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="tequila/leonista-prd.jpg" alt="leonista" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_tequila">tequila</span>
+          <h4 class="product-name">leonista</h4>
+          <p class="product-origin">south africa</p>
+        </div>
+      </div>
+<!--rum
+      -->
+
+      <div class="product-card reveal delay-5" data-category="rum">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="rum/ronbarcelo-prod.jpg" alt="ron barcelo" class="imgvodka" ></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_rum">rum</span>
+          <h4 class="product-name">ron barcelo</h4>
+          <p class="product-origin">dominican republic</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-5" data-category="rum">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="rum/duppy-prod.jpg" alt="the duppy share" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_rum">rum</span>
+          <h4 class="product-name">the duppy share</h4>
+          <p class="product-origin">jamaica</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-5" data-category="rum">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="rum/neptune-prod.jpg" alt="neptune" class="imgvodka" ></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_rum">rum</span>
+          <h4 class="product-name">neptune</h4>
+          <p class="product-origin">south africa</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-5" data-category="rum">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="rum/kohinoor-prod.png" alt="kohinoor" class="imgvodka" ></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_rum">rum</span>
+          <h4 class="product-name">kohinoor</h4>
+          <p class="product-origin">india</p>
+        </div>
+      </div>
+<!--wine
+      -->
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/leo-prod.jpg" alt="leonardodavinci" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">leonardo da vinci</h4>
+          <p class="product-origin">italy</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/montiverro-prod.jfif" alt="terradimontiverro" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">terra di montiverro</h4>
+          <p class="product-origin">italy</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/pirovano-prod.jpg" alt="pirovano" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">pirovano</h4>
+          <p class="product-origin">italy</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/mood-prod.jpg" alt="mood" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">mood</h4>
+          <p class="product-origin">italy</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/tenuterubino-prod.jpg" alt="tenute rubino" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">tenute rubino</h4>
+          <p class="product-origin">italy</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/orlandoabrigo-prod.jpg" alt="orlando abrigo" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">orlando abrigo</h4>
+          <p class="product-origin">italy</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/mmwinemaker-prod.jpg" alt="lionel" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">MM winemaker</h4>
+          <p class="product-origin">italy</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/romane-prod.jpg" alt="romané-conti" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">romanée-conti</h4>
+          <p class="product-origin">france</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/sapien-prod.jpg" alt="sapien wine" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">sapien wine</h4>
+          <p class="product-origin">united states</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-1" data-category="wine">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="wine/601532293_18544741333044530_1974985664798585565_n.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_wine">Wine</span>
+          <h4 class="product-name">casas del bosque</h4>
+          <p class="product-origin">chile</p>
+        </div>
+      </div>
+
+
+<!--champane
+-->
+      <div class="product-card reveal delay-6" data-category="champagne">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="champagn/delamotte-prod.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_champagne">Champagne</span>
+          <h4 class="product-name">delamotte</h4>
+          <p class="product-origin">france</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-6" data-category="champagne">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="champagn/salon-prod.jpg" alt="salon" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_champagne">Champagne</span>
+          <h4 class="product-name">salon</h4>
+          <p class="product-origin">france</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-6" data-category="champagne">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="champagn/485900023_10071152742913338_5485677818089426784_n.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_champagne">Champagne</span>
+          <h4 class="product-name">le mensil</h4>
+          <p class="product-origin">france</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal delay-6" data-category="champagne">
+        <div class="product-img">
+          <div class="img-placeholder product-placeholder"><img src="champagn/678396905_122109733581258057_7461227332130660870_n.jpg" alt="" class="imgvodka"></div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat" data-i18n="pf_champagne">Champagne</span>
+          <h4 class="product-name">deutz</h4>
+          <p class="product-origin">france</p>
+        </div>
+      </div>
+
+
+     
+      
+    
+    </div>
+  </div>
+</section>
+
+<!-- 
+     CATALOG
+-->
+<section id="catalog" class="catalog-section">
+  <div class="catalog-bg">
+    <div class="img-placeholder catalog-bg-placeholder">
+      <i class="fa-solid fa-image"></i>
+      <span>Catalog Section Background</span>
+    </div>
+  </div>
+  <div class="catalog-overlay"></div>
+  <div class="catalog-content reveal">
+    <div class="section-tag center"><span data-i18n="catalog_tag">Our Catalog</span></div>
+    <h2 class="section-title" data-i18n="catalog_title">Explore Our <span class="red">Full Range</span></h2>
+    <p data-i18n="catalog_desc">Download our comprehensive product catalog to discover our complete portfolio of premium beverages, brands, and availability for your market.</p>
+    <button class="btn-primary" id="openCatalogModal" data-i18n="catalog_btn">
+      <i class="fa-solid fa-download"></i> Download Catalog
+    </button>
+  </div>
+</section>
+
+<!--
+     GALLERY
+ -->
+<section id="gallery" class="section gallery-section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <div class="section-tag center"><span data-i18n="gallery_tag">Our World</span></div>
+      <h2 class="section-title" data-i18n="gallery_title">Gallery & <span class="red">Showcase</span></h2>
+    </div>
+
+    <div class="gallery-grid reveal delay-1">
+      <div class="gallery-item gi-large">
+        <div class="img-placeholder gallery-placeholder">
+          <img
+            id="premiumSlider"
+            src="media/vyrovcollection.jpg"
+            alt="Premium Collection"
+            class="galleries"
+        >
+
+         
+        </div>
+        <div class="gallery-caption"><span data-i18n="gal1">Premium Collection</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="img-placeholder gallery-placeholder">
+          <img src="media/bdbdabb4-2949-481f-ac3f-0f424c8a4239.png" alt="wharehouse" class="galleries">
+        </div>
+
+        <div class="gallery-caption"><span data-i18n="gal2">Warehouse</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="img-placeholder gallery-placeholder">
+          <img src="media/IMP.png" alt="distribution" class="galleries">
+          
+        </div>
+        <div class="gallery-caption"><span data-i18n="gal3">Distribution</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="img-placeholder gallery-placeholder">
+          <img src="media/morocco-events-mawazin-music-festival.webp" alt="event" class="galleries">
+        </div>
+        <div class="gallery-caption"><span data-i18n="gal4">Events</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 
+     CONTACT
+-->
+<section id="contact" class="section contact-section dark-section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <div class="section-tag center"><span data-i18n="contact_tag">Get In Touch</span></div>
+      <h2 class="section-title" data-i18n="contact_title">Let's <span class="red">Work Together</span></h2>
+      <p class="section-sub" data-i18n="contact_sub">Whether you're a supplier, retailer, or business partner — we're ready to build a relationship.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info -->
+      <div class="contact-info reveal-left">
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h5 data-i18n="ci_addr_label">Address</h5>
+            <p data-i18n="ci_addr">El Gharb street Brêment villa Mohammedia Maroc</p>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h5 data-i18n="ci_phone_label">Phone</h5>
+            <a href="tel:+212600000000" data-i18n="ci_phone">+212 609 626 352</a>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <h5 data-i18n="ci_email_label">Email</h5>
+            <a href="mailto:hertzberger.contact@gmail.com" data-i18n="ci_email">hertzberger.contact@gmail.com</a>
+          </div>
+        </div>
+        
+
+        <!-- Map placeholder -->
+        <div class="map-placeholder-wrap">
+          <div class="map-placeholder">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.3980141857232!2d-7.393997725495593!3d33.69919247329199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7b6f9c7cd71b5%3A0x62eb215a8a12b5fd!2sRue%20Al%20Gharb%2C%20Mohamm%C3%A9dia!5e1!3m2!1sen!2sma!4v1785853735696!5m2!1sen!2sma" 
+           width="600" 
+           height="450" 
+           style="border:0;" 
+           allowfullscreen="" 
+           loading="lazy" 
+           referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+            <span data-i18n="map_label">Google Maps</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-wrap reveal-right">
+        <form id="contactForm" class="contact-form" novalidate>
+          <input type="hidden" name="_subject" value="New message from HERTZBERGER website"/>
+          <div class="cf-row">
+            <div class="cf-group">
+              <label for="c-name" data-i18n="cf_c_name">Full Name *</label>
+              <input type="text" id="c-name" name="name" required autocomplete="name"/>
+            </div>
+            <div class="cf-group">
+              <label for="c-email" data-i18n="cf_c_email">Email *</label>
+              <input type="email" id="c-email" name="email" required autocomplete="email"/>
+            </div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-group">
+              <label for="c-phone" data-i18n="cf_c_phone">Phone</label>
+              <input type="tel" id="c-phone" name="phone" autocomplete="tel"/>
+            </div>
+            <div class="cf-group">
+              <label for="c-subject" data-i18n="cf_c_subject">Subject</label>
+              <select id="c-subject" name="subject">
+                <option value="" data-i18n="cf_select">Select subject</option>
+                <option value="import" data-i18n="cf_opt1">Importation Inquiry</option>
+                <option value="distrib" data-i18n="cf_opt2">Distribution Partnership</option>
+                <option value="supplier" data-i18n="cf_opt3">Become a Supplier</option>
+                <option value="other" data-i18n="cf_opt4">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="cf-group">
+            <label for="c-message" data-i18n="cf_c_message">Message *</label>
+            <textarea id="c-message" name="message" required></textarea>
+          </div>
+          <label class="privacy-consent"><input type="checkbox" name="privacy_consent" value="accepted" required/><span data-i18n="privacy_consent">I agree that my details may be used to respond to my request.</span></label>
+          <div class="cf-success" id="cfSuccess">
+            <i class="fa-solid fa-circle-check"></i>
+            <span data-i18n="cf_success_msg">Message sent! We'll be in touch shortly.</span>
+          </div>
+          <button type="submit" class="btn-primary full-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span data-i18n="cf_submit_c">Send Message</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+     FOOTER
+-->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand col -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            
+            <div class="logo-placeholder footer-logo-placeholder">
+              
+              <div class="logo-text-wrap">
+                
+                <img src="media/logositew.png" alt="" class="logoH">
+              </div>
+            </div>
+          </div>
+          <p data-i18n="footer_desc">Premium importation and distribution of alcoholic beverages. Connecting world-class producers with discerning markets.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/hertzberger-hertzbergerlux-367755420/" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/herztberger_lux/" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1CgStkVvZJ/?mibextid=wwXIfr" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://x.com/HertzbergerLux" class="social-link" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_nav">Navigation</h4>
+          <ul>
+            <li><a href="#home"      data-i18n="nav_home">Home</a></li>
+            <li><a href="#about"     data-i18n="nav_about">About</a></li>
+            <li><a href="#services"  data-i18n="nav_services">Services</a></li>
+            <li><a href="#suppliers" data-i18n="nav_suppliers">Suppliers</a></li>
+            <li><a href="#products"  data-i18n="nav_products">Products</a></li>
+            <li><a href="#catalog"   data-i18n="nav_catalog">Catalog</a></li>
+            <li><a href="#contact"   data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_services">Services</h4>
+          <ul>
+            <li><a href="#services" data-i18n="svc1_title">Importation</a></li>
+            <li><a href="#services" data-i18n="svc2_title">Distribution</a></li>
+            <li><a href="#services" data-i18n="svc3_title">Logistics</a></li>
+            <li><a href="#services" data-i18n="svc4_title">Marketing Support</a></li>
+            <li><a href="#services" data-i18n="svc5_title">Supplier Management</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_contact">Contact</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fa-solid fa-location-dot"></i><span data-i18n="ci_addr">Mohammedia, Morocco</span></li>
+            <li><i class="fa-solid fa-phone"></i><a href="tel:+212609626352" data-i18n="ci_phone">+212 609 626 352</a></li>
+            <li><i class="fa-solid fa-envelope"></i><a href="mailto:hertzberger.contact@gmail.com" data-i18n="ci_email">hertzberger.contact@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p data-i18n="footer_copy">© 2025 HERTZBERGER. All rights reserved. Please drink responsibly.</p>
+      <div class="footer-links">
+        <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+        <a href="#" data-i18n="footer_terms">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
